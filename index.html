@@ -1,1 +1,1058 @@
-Hello world
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/logo/logo-short.png">
+    <title>Atiga Project - Layanan Pembuatan Aplikasi & Digital Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel Warna */
+        :root {
+            --primary-blue: #273F6C;
+            --accent-yellow: #FCC618;
+            --light-blue: #3A5B94;
+            --dark-blue: #1A2D4D;
+            --light-gray: #F5F7FA;
+            --dark-gray: #333333;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo span {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .cta-button {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e0ae0e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(252, 198, 24, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1A2D4D 0%, #273F6C 100%);
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="%23273f6c" points="0,100 100,0 100,100"/><polygon fill="%23fcc618" opacity="0.2" points="0,0 0,100 100,0"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            color: white;
+            padding-right: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .polygon-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .polygon {
+            position: absolute;
+            background: var(--accent-yellow);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.8;
+            transition: transform 0.5s;
+        }
+
+        .polygon-1 {
+            width: 300px;
+            height: 300px;
+            top: 0;
+            left: 100px;
+            background: rgba(252, 198, 24, 0.6);
+        }
+
+        .polygon-2 {
+            width: 200px;
+            height: 200px;
+            top: 150px;
+            left: 0;
+            background: rgba(252, 198, 24, 0.4);
+        }
+
+        .polygon-3 {
+            width: 150px;
+            height: 150px;
+            top: 250px;
+            left: 250px;
+            background: rgba(252, 198, 24, 0.3);
+        }
+
+        .app-icon {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+            margin-left: 150px;
+        }
+
+        .app-icon i {
+            font-size: 80px;
+            color: var(--primary-blue);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-yellow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(39, 63, 108, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 30px;
+            color: var(--primary-blue);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .low-poly-illustration {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--primary-blue) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .polygon-illustration {
+            position: absolute;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.3;
+        }
+
+        .poly-ill-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-yellow);
+            top: 50px;
+            left: 50px;
+        }
+
+        .poly-ill-2 {
+            width: 150px;
+            height: 150px;
+            background: rgba(252, 198, 24, 0.4);
+            bottom: 50px;
+            right: 50px;
+        }
+
+        .poly-ill-3 {
+            width: 80px;
+            height: 80px;
+            background: rgba(252, 198, 24, 0.3);
+            top: 150px;
+            right: 100px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            color: var(--primary-blue);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .hide-down {
+            opacity: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.5s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .polygon-1 {
+                width: 200px;
+                height: 200px;
+            }
+
+            .polygon-2 {
+                width: 150px;
+                height: 150px;
+            }
+
+            .polygon-3 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .app-icon {
+                margin-left: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 130px 0 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .polygon-1 {
+                width: 150px;
+                height: 150px;
+                left: 50px;
+            }
+
+            .polygon-2 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .polygon-3 {
+                width: 70px;
+                height: 70px;
+                left: 150px;
+            }
+
+            .app-icon {
+                width: 150px;
+                height: 150px;
+                margin-left: 50px;
+            }
+
+            .app-icon i {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><img src="./assets/logo/Logo.png" style="object-fit: contain; height: 50px;" /></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <button class="cta-button">Konsultasi Gratis</button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transformasi Digital untuk Bisnis Anda</h1>
+                    <p>Kami menyediakan solusi pembuatan aplikasi custom dan strategi digital marketing terpadu untuk
+                        membantu bisnis Anda tumbuh di era digital.</p>
+                    <button class="cta-button">Mulai Proyek Anda</button>
+                </div>
+                <div class="hero-image">
+                    <div class="polygon-container">
+                        <div class="polygon polygon-1"></div>
+                        <div class="polygon polygon-2"></div>
+                        <div class="polygon polygon-3"></div>
+                        <div class="app-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Kami menawarkan solusi digital lengkap untuk kebutuhan bisnis Anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Pembuatan Aplikasi</h3>
+                    <p>Kami mengembangkan aplikasi mobile dan web custom sesuai kebutuhan bisnis Anda dengan teknologi
+                        terkini.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Aplikasi E-commerce</h3>
+                    <p>Solusi toko online lengkap dengan sistem pembayaran, manajemen inventaris, dan dashboard
+                        analitik.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategi pemasaran digital terintegrasi untuk meningkatkan visibilitas dan konversi bisnis Anda.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO & Konten Marketing</h3>
+                    <p>Optimasi mesin pencari dan strategi konten untuk menarik lebih banyak pengunjung berkualitas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>Iklan Berbayar</h3>
+                    <p>Manajemen kampanye iklan di Google, Facebook, Instagram, dan platform digital lainnya.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Layanan pemeliharaan dan dukungan teknis untuk memastikan aplikasi Anda selalu berjalan optimal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-image">
+                <div class="low-poly-illustration">
+                    <div class="polygon-illustration poly-ill-1"></div>
+                    <div class="polygon-illustration poly-ill-2"></div>
+                    <div class="polygon-illustration poly-ill-3"></div>
+                </div>
+            </div>
+            <div class="about-text">
+                <h2>Tentang AtigaPro</h2>
+                <p>AtigaPro adalah perusahaan pengembangan aplikasi dan digital marketing yang berdedikasi untuk
+                    membantu bisnis bertransformasi di era digital. Dengan tim ahli yang berpengalaman, kami
+                    menggabungkan kreativitas dan teknologi untuk memberikan solusi terbaik bagi klien kami.</p>
+                <p>Kami percaya bahwa setiap bisnis unik, itulah sebabnya kami menawarkan solusi yang disesuaikan dengan
+                    kebutuhan spesifik Anda. Dari aplikasi custom hingga strategi pemasaran digital yang terukur, kami
+                    hadir untuk mendukung kesuksesan bisnis Anda.</p>
+                <p>Dengan pendekatan berbasis data dan fokus pada hasil, kami telah membantu puluhan bisnis meningkatkan
+                    efisiensi operasional, menjangkau lebih banyak pelanggan, dan meningkatkan pendapatan mereka.</p>
+                <button class="cta-button">Pelajari Lebih Lanjut</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--light-gray);">Apa Kata Klien Kami</h2>
+                <p style="color: var(--light-gray);">Kepuasan klien adalah prioritas utama kami</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Aplikasi yang dikembangkan oleh AtigaPro telah membantu kami meningkatkan efisiensi
+                        operasional hingga 40%. Tim profesional dan responsif!"</p>
+                    <div class="client-info">
+                        <div class="client-avatar">BD</div>
+                        <div>
+                            <h4>Budi Darmawan</h4>
+                            <p>CEO, RetailKu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Strategi digital marketing dari AtigaPro menghasilkan peningkatan penjualan sebesar 150%
+                        dalam 3 bulan. Sangat direkomendasikan!"</p>
+                    <div class="client-info">
+                        <div class="client-avatar">SA</div>
+                        <div>
+                            <h4>Siti Aisyah</h4>
+                            <p>Pemilik, HijabStyle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Proses pengembangan aplikasi sangat transparan dan sesuai timeline. Aplikasi e-commerce kami
+                        sekarang menjadi tulang punggung bisnis."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">RW</div>
+                        <div>
+                            <h4>Rudi Wijaya</h4>
+                            <p>Direktur, GrosirMart</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <p>Kami siap membantu mewujudkan solusi digital untuk bisnis Anda</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Lokasi</h4>
+                            <p>Pasarminggu, Jakarta Selatan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 83161854576</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>clientservices@atigapro.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 09:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" id="parent-form-contact">
+                    <div id="form-contact" style="transition: 500ms;">
+                        <input type="text" name="name" placeholder="Nama Lengkap" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="tel" placeholder="Nomor Telepon">
+                        <textarea name="message" placeholder="Pesan Anda" required></textarea>
+                        <button id="submit-form" type="submit" class="cta-button">Kirim Pesan</button>
+                    </div>
+
+                    <script type="text/javascript"
+                        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+                    <script type="text/javascript">
+                        const submitButton = document.querySelector('button#submit-form');
+
+                        submitButton.addEventListener('click', function (e) {
+                            const formContact = document.querySelector('div#form-contact');
+                            const parentFormContact = document.querySelector('div#parent-form-contact');
+
+                            // formContact.classList.add('hide-down');
+                            // parentFormContact.append(`
+                            //     <div style="width: 100%; text-align: center;">
+                            //         Terima kasih sudah menghubungi kami
+                            //     </div>
+                            // `);
+
+                            // # Init 
+                            emailjs.init({
+                                publicKey: "ftOK3css06qRCsqB3",
+                            });
+
+                            // # Send
+                            emailjs.send("service_t1csy1b", "template_c96q7o6", {
+                                title: "Halo",
+                                name: "Rifky",
+                                message: "Halo",
+                                email: "ralfian096@gmail.com",
+                            });
+
+
+                            // // # Send
+                            // const response = fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                            //     method: "POST",
+                            //     headers: {
+                            //         // "X-ElasticEmail-ApiKey": "797F446201881852B20858D57454B9AD355CEF91FAB0D92BD2558E69F2FF8940826733CF707C092FEBCA946B03D57843",
+                            //         "Content-type": "application/json"
+                            //     },
+                            //     // ftOK3css06qRCsqB3
+                            //     // service_t1csy1b
+                            //     body: JSON.stringify({
+                            //         service_id: "service_t1csy1b",
+                            //         template_id: "template_c96q7o6",
+                            //         user_id: "ftOK3css06qRCsqB3",
+                            //         template_params: {
+                            //             title: formContact.querySelector('input[name="email"]').value,
+                            //             email: formContact.querySelector('input[name="email"]').value,
+                            //             name: formContact.querySelector('input[name="name"]').value,
+                            //             message: formContact.querySelector('textarea[name="message"]').value,
+                            //             phone_number: formContact.querySelector('input[name="tel"]').value,
+                            //         }
+
+                            //         // "Recipients": [
+                            //         //     {
+                            //         //         "Email": "clientservices@atigapro.com"
+                            //         //     }
+                            //         // ],
+                            //         // "Content": {
+                            //         //     "From": formContact.querySelector('input[name="email"]').value,
+                            //         //     "Body": [
+                            //         //         {
+                            //         //             "ContentType": "PlainText",
+                            //         //             "Content": formContact.querySelector('textarea[name="message"]').value
+                            //         //         }
+                            //         //     ]
+                            //         // },
+                            //     })
+                            // });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Atiga Project</h3>
+                    <p>Partner terpercaya untuk transformasi digital bisnis Anda melalui pengembangan aplikasi custom
+                        dan strategi pemasaran digital yang efektif.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan Kami</h3>
+                    <ul>
+                        <li><a href="#">Pembuatan Aplikasi</a></li>
+                        <li><a href="#">Pengembangan Website</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">SEO & Konten Marketing</a></li>
+                        <li><a href="#">Manajemen Iklan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Telusuri</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#testimonials">Testimoni</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Berlangganan</h3>
+                    <p>Dapatkan tips dan informasi terbaru seputar digital marketing dan teknologi.</p>
+                    <form>
+                        <input type="email" placeholder="Email Anda" required>
+                        <button type="submit" class="cta-button">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Atiga Project. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animation
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.service-card, .about-image, .testimonial-card');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize elements with animation properties
+        document.querySelectorAll('.service-card, .about-image, .testimonial-card').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+    </script>
+</body>
+
+</html>
